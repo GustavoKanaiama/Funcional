@@ -14,7 +14,37 @@ with open('./output.dat', 'w') as f_out:
     
     f_in = open('./input.dat', 'r')
     
-    f_out.write(''.join(list(map(lambda x : str(x[0])+' '+str(x[1])+ '\n', list(map(lambda x : [fib(x[0]), fact(x[0])], map(lambda x : x.split(',') if (',') in x else x.split(), f_in.read().split('\n'))))))))
+
+    #Ler o arquivo de entrada(input)
+    db = f_in.read()
+    
+    #Criei uma lista de listas
+    lista_de_listas = map(lambda x : x.split(',') if (',') in x else x.split(), db.split('\n'))
+
+    #listando a lista_de_lista para poder usar o método .index()
+    lista_de_listas = list(lista_de_listas)
+
+    
+    #Aplicando fib() e fact() em cada um dos elementos formatado: "nlinha, xfib, fib(), yfact ,fact()" utilizando o metodo strip para evitar espaços
+    res = map(lambda x : [lista_de_listas.index(x), x[0].strip(), fib(x[0]), x[1].strip(), fact(x[1])], lista_de_listas)
+    
+    
+    #Transcrever de novo para o formato de string
+    str_form = map(lambda x : f"Linha {str(x[0])}: Fib({str(x[1])})={str(x[2])} Fact({str(x[3])})={str(x[4])}\n", list(res))
+    
+    #Dar criar uma string com join() iterando todos elementos das listas
+    str_final = ''.join(list(str_form))
+    
+
+    f_out.write(str_final)
+
+
+
+
+
+    #Linha n: Fib(x)=X Fact(y)=Y
+
+    #f_out.write(''.join(list(map(lambda x : str(x[0])+' '+str(x[1])+ '\n', list(map(lambda x : [fib(x[0]), fact(x[1])], map(lambda x : x.split(',') if (',') in x else x.split(), f_in.read().split('\n'))))))))
     
     """
     #Ler o arquivo de entrada(input)

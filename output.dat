@@ -1,5 +1,5 @@
-0 1
-1 2
-1 2
-3 120
-2 24
+Linha 0: Fib(1)=0 Fact(3)=6
+Linha 1: Fib(2)=1 Fact(8)=40320
+Linha 2: Fib(2)=1 Fact(2)=2
+Linha 3: Fib(5)=3 Fact(2)=2
+Linha 4: Fib(4)=2 Fact(1)=1
